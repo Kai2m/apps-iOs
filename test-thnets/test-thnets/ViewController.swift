@@ -31,9 +31,9 @@ class ViewController: UIViewController {
     @IBAction func buttonpressed(_ sender: Any) {
 
         // RUN THNETS TEST HERE:
-        label.text = "Success!"
+        //label.text = "Success!"
         
-        // access to neural-nets directory: http://www.techotopia.com/index.php/Working_with_Directories_in_Swift_on_iOS_8
+//          access to neural-nets directory: http://www.techotopia.com/index.php/Working_with_Directories_in_Swift_on_iOS_8
 //        let filemgr = FileManager.default
 //        let currentPath = filemgr.currentDirectoryPath
         
@@ -43,12 +43,13 @@ class ViewController: UIViewController {
         THInit();
 
         // load neural net:
-        net = THLoadNetwork("/Users/eugenioculurciello/Code/github/apps-iOs/test-thnets/neural-nets/");
+        let docPath = Bundle.main.resourcePath! + "/neural-nets/"
+        net = THLoadNetwork(docPath)
         print(net)
 
         // run neural net:
 //        if net == nil {
-            THUseSpatialConvolutionMM(net, 2);
+            THUseSpatialConvolutionMM(net, 2)
             
             label.text = "Success!"
             
